@@ -164,8 +164,9 @@ class FlowNet2C(FlowNetC):
         x = (inputs - rgb_mean) / self.rgb_max
         x1 = x[:, :, 0, :, :]
         x2 = x[:, :, 1, :, :]
+        x = torch.cat((x1, x2), dim=1)
 
-        flows = super(FlowNet2C, self).forward(x1, x2)
+        flows = super(FlowNet2C, self).forward(x)
 
         if self.training:
             return flows
