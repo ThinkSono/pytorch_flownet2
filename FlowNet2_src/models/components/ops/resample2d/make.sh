@@ -7,7 +7,7 @@ echo "Compiling resample2d kernels by nvcc..."
 rm Resample2d_kernel.o
 rm -r ../_ext
 
-nvcc -c -o Resample2d_kernel.o Resample2d_kernel.cu -x cu -Xcompiler -fPIC -arch=sm_30 -I ${TORCH}/lib/include/TH -I ${TORCH}/lib/include/THC
+nvcc -c -o Resample2d_kernel.o Resample2d_kernel.cu -x cu -Xcompiler -fPIC -gencode arch=compute_52,code=sm_52  -gencode arch=compute_60,code=sm_60 -gencode arch=compute_61,code=sm_61 -I ${TORCH}/lib/include/TH -I ${TORCH}/lib/include/THC
 
 cd ../
 $PYTHON build.py
