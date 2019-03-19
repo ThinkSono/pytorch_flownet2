@@ -168,10 +168,7 @@ class FlowNet2C(FlowNetC):
 
         flows = super(FlowNet2C, self).forward(x)
 
-        if self.training:
-            return flows
-        else:
-            return self.upsample1(flows[0] * self.div_flow)
+        return self.upsample1(flows[0] * self.div_flow)
 
 
 class FlowNet2S(FlowNetS):
@@ -189,10 +186,7 @@ class FlowNet2S(FlowNetS):
 
         flows = super(FlowNet2S, self).forward(x)
 
-        if self.training:
-            return flows
-        else:
-            return self.upsample1(flows[0] * self.div_flow)
+        return self.upsample1(flows[0] * self.div_flow)
 
 
 class FlowNet2SD(FlowNetSD):
@@ -210,10 +204,7 @@ class FlowNet2SD(FlowNetSD):
 
         flows = super(FlowNet2SD, self).forward(x)
 
-        if self.training:
-            return flows
-        else:
-            return self.upsample1(flows[0] * self.div_flow)
+        return self.upsample1(flows[0] * self.div_flow)
 
 
 class FlowNet2CS(nn.Module):
