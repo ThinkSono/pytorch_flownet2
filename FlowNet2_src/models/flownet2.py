@@ -204,7 +204,7 @@ class FlowNet2SD(FlowNetSD):
 
         flows = super(FlowNet2SD, self).forward(x)
 
-        return self.upsample1(flows[0] * self.div_flow)
+        return self.upsample1(flows[0] / self.div_flow)
 
 
 class FlowNet2CS(nn.Module):
