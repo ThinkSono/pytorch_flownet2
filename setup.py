@@ -11,7 +11,8 @@ FlowNet implementation for thinksono.
 
 
 def run_install():
-    subprocess.call('./install.sh', shell=True)
+    # Set check to True, so an error is raised when the build process fails
+    subprocess.run("make", shell=True, check=True)
 
 
 class install_command(install):
